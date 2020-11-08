@@ -1,0 +1,43 @@
+/* Header background color */
+.sa-header {
+  background-color: #333;
+}
+
+/* Header and header container shared styles*/
+.sa-header, .container {
+  display: flex;
+  align-items: center;
+}
+
+/* Logo width and height*/
+#logo img {
+  width: 120px;
+  height: 60px;
+}
+
+/* Nav menu list */
+.sa-nav-list {
+  justify-content: space-between;
+  text-align: center;
+}
+
+/* Nav menu items style*/
+.sa-nav-item {
+  display: inline;
+}
+
+/* Nav menu items text style */
+.sa-nav-item a {
+  display: inline-block;
+  padding: .5em 1.5em;
+  color: white;
+  text-decoration: none;
+  border-radius: 15px;
+  background: transparent;
+}
+
+/* Nav menu items text on mouse over style */
+.sa-nav-item a:hover {
+  border-bottom: inset;
+  margin-bottom: -2px;
+}
