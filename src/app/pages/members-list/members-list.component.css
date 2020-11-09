@@ -1,3 +1,21 @@
+main.container {
+  min-height: 533px;
+}
+
+/* Filters container Style*/
+.filters {
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.filters #searchBox {
+  text-align: right;
+}
+
+.filters #searchBox #searchBox-input {
+  margin-bottom: 5px
+}
+
 /* Filter List Styling */
 .filter-list {
   display: flex;
@@ -6,21 +24,35 @@
   margin-bottom: 15px;
 }
 
+/* Filter items style*/
 div.filter-item {
   display: flex;
-  flex:1 200px;
+  flex: 1 200px;
   align-items: center;
 }
 
 /* Table Styling */
+.table-container {
+  width: auto;
+  overflow-x: auto;
+}
+
 table {
+  border: 1px solid black;
   min-width: max-content;
 }
 
-thead tr {
+/* Table header color*/
+table > thead > tr {
   color: white;
   background-color: dodgerblue;
 }
+
+/* Table inner borders*/
+table > thead > tr > th, table > tbody > tr > td {
+  border: 1px solid silver;
+}
+
 
 .table-filter-icon {
   text-decoration: none;
@@ -67,4 +99,18 @@ thead tr {
 .arrow-active {
   pointer-events: none;
   color: #dddddd !important;
+}
+
+
+/* Loader Style */
+.loader {
+  position: absolute;
+  top: 17.5rem;
+  left: 47.5%
+}
+
+/* Error container style*/
+div#error-container {
+  text-align: center;
+  padding-top: 10rem
 }

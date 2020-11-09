@@ -4,7 +4,7 @@
 }
 
 /* Header and header container shared styles*/
-.sa-header, .container {
+.sa-header, .sa-container {
   display: flex;
   align-items: center;
 }

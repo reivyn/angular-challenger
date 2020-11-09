@@ -1,13 +1,16 @@
 <header class="sa-header">
-  <div class="container">
-    <a id="logo" href="#">
+  <div class="sa-container">
+    <a id="logo" routerLink="/home" title="Logo">
       <img src="assets/img/logo.png" alt="Logo">
     </a>
     <nav class="sa-nav">
       <ul class="sa-nav-list">
         <li class="sa-nav-item">
-          <a href="#">Home</a></li>
-        <li class="sa-nav-item"><a href="#">Members List</a></li>
+          <a routerLink="/home" title="Home">Home</a>
+        </li>
+        <li class="sa-nav-item">
+          <a routerLink="/members-list" title="Members List">Members List</a>
+        </li>
       </ul>
     </nav>
   </div>

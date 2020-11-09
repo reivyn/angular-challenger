@@ -1,0 +1,23 @@
+main > header {
+  height: 300px;
+  background-color: #E1E2E1;
+  text-align: center;
+}
+
+main > header > h1 {
+  margin: 0;
+  padding-top: 100px;
+}
+
+section.container {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+section.container div#search-section {
+  padding-bottom: 1rem; text-align: center;
+}
+
+div#p-section {
+  padding-bottom: 2rem;
+}
