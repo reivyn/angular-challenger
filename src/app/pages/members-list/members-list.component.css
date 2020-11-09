@@ -1,0 +1,70 @@
+/* Filter List Styling */
+.filter-list {
+  display: flex;
+  flex-flow: row wrap;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+div.filter-item {
+  display: flex;
+  flex:1 200px;
+  align-items: center;
+}
+
+/* Table Styling */
+table {
+  min-width: max-content;
+}
+
+thead tr {
+  color: white;
+  background-color: dodgerblue;
+}
+
+.table-filter-icon {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.table-filter-input {
+  height: 15px;
+}
+
+.table-filter-icon:hover {
+  color: black;
+}
+
+/* Pagination Styling */
+.pagination {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  text-align: center;
+  overflow-wrap: break-word;
+}
+
+/* Pagination links */
+.pagination a {
+  color: black;
+  padding: 8px 16px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color .3s;
+}
+
+/* Style the active/current link */
+.pagination a.active {
+  background-color: dodgerblue;
+  color: white;
+}
+
+/* Add a grey background color on mouse-over */
+.pagination a:hover:not(.active) {
+  background-color: #ddd;
+}
+
+/* Pagination Arrows*/
+.arrow-active {
+  pointer-events: none;
+  color: #dddddd !important;
+}

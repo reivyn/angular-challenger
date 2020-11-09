@@ -1,0 +1,56 @@
+<main class="container">
+
+  <div class="filters" style="margin-bottom: 15px">
+    <div style="text-align: right">
+      <div style="margin-bottom: 5px">
+        <label for="search-input">Search: </label>
+        <input id="search-input" type="text" [(ngModel)]="searchValue" (ngModelChange)="searchInAllTable(searchValue)"
+               placeholder="Enter a value to search...">
+      </div>
+      <div>
+        {{filterLength}} Filters Available
+        <button type="button" (click)="showAdvFilters = !showAdvFilters">Show Filters</button>
+      </div>
+    </div>
+    <div *ngIf="showAdvFilters" class="filter-list">
+      <div *ngFor="let label of tableHeader; let i = index" class="filter-item">
+        <input id="{{label.key}}" type="checkbox" [checked]="label.active" (change)="showColumn(i)">
+        <label for="{{label.key}}">{{label.key | titlecase}}</label>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!apiHasError" style="width: auto; overflow-x:auto;">
+    <table style="border: 1px solid black">
+      <thead>
+      <tr style="border: 1px solid silver">
+        <th *ngFor="let tHead of tableHeader" style="border: 1px solid silver" [hidden]="!tHead.active">
+          {{tHead.key | titlecase}}
+          <a *ngIf="tableFilters" class="table-filter-icon" (click)="tableFilters = !tableFilters">&#9660;</a>
+          <a *ngIf="!tableFilters" class="table-filter-icon" (click)="tableFilters = !tableFilters">&#9664;</a>
+          <div *ngIf="tableFilters">
+            <label for="{{'search-' + tHead.key}}"></label>
+            <input id="{{'search-' + tHead.key}}" class="table-filter-input" type="text" (keyup)="searchByField(tHead.key, $event)">
+          </div>
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let member of membersList | slice: (currentPage - 1) * 10 : currentPage * 10; let i = index"
+          style="border: 1px solid silver">
+        <td *ngFor="let tHead of tableHeader" style="border: 1px solid silver"
+            [hidden]="!tHead.active">{{member[tHead.key]}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="pagination">
+    <a [class.arrow-active]="pageArrows.left" (click)="changePage(1)">&laquo;</a>
+    <a [class.arrow-active]="pageArrows.left" (click)="changePage(currentPage - 1)">&lt;</a>
+    <a *ngFor="let page of pagItems" [class.active]="page.active"
+       (click)="changePage(page.pageNum)">{{page.pageNum}}</a>
+    <a [class.arrow-active]="pageArrows.right" (click)="changePage(currentPage + 1)">&gt;</a>
+    <a [class.arrow-active]="pageArrows.right" (click)="changePage(pagItems.length)">&raquo;</a>
+    <p>Total Members: {{pagSize}}</p>
+  </div>
+</main>
