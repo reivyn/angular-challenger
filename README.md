@@ -1,6 +1,29 @@
-# AngularChallenger
+# Users Section
+
+Site URL: https://reivyn.github.io/angular-challenger/
+
+## Application Usage
+
+This application allows to the users view a list of congress members, this information is displaying on a table with all the information. Also, you can use the search box to search some member information, and you can use the filters to show or hidden the columns what the user wants.
+
+## App Functionalities
+
+* The user can access to member list pressing the button in the center of the home page or clicking on the link "*Member List*" of the header or footer
+* The user can use the search box for search any word or number that contains the member's list
+* The user can press the button "*Show Filters*" to select what columns want to view on the table
+* On the table headers, the user can press on the arrow symbols, to show or hidden the filter by column field   
+
+--------------------------
+# Developer Section
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
+
+## Pre-requirements
+
+* Install the latest version of [NodeJS LTS](https://nodejs.org/)
+* Clone the repository from https://github.com/reivyn/angular-challenger/
+* After cloning the repository, you must execute on the root of the project directory the following command on your terminal: **npm install**
+* Now, the project is ready.
 
 ## Development server
 
