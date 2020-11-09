@@ -39,5 +39,5 @@
 /* Nav menu items text on mouse over style */
 .sa-nav-item a:hover {
   border-bottom: inset;
-  margin-bottom: -2px;
+  margin-bottom: -3px;
 }
