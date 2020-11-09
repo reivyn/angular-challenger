@@ -1,0 +1,23 @@
+footer {
+  background-color: #333;
+  color: #fff;
+  height: 100px;
+}
+
+.footer-container {
+  margin: 1rem
+}
+
+.footer-container > ul {
+  display: inline-block;
+}
+
+.footer-container > ul > li > a {
+  color: white;
+  text-decoration: none;
+}
+
+#logo img {
+  width: 120px;
+  height: 60px;
+}

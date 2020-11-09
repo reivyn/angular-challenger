@@ -1,13 +1,15 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ProPublicaService} from '../../services/pro-publica.service';
+import {Subject} from 'rxjs';
+import {takeUntil} from 'rxjs/operators';
 
 @Component({
   selector: 'app-members-list',
   templateUrl: './members-list.component.html',
   styleUrls: ['./members-list.component.css']
 })
-export class MembersListComponent implements OnInit {
-
+export class MembersListComponent implements OnInit, OnDestroy {
+  protected ngUnsubscribe: Subject<void> = new Subject<void>();
   membersList = [];
   tableHeader = [];
   startHeaders = [];
@@ -24,6 +26,8 @@ export class MembersListComponent implements OnInit {
   showAdvFilters = false;
   tableFilters = false;
   apiHasError = false;
+  isLoading = true;
+  hasError = false;
 
   constructor(private proPublica: ProPublicaService) {
   }
@@ -43,7 +47,8 @@ export class MembersListComponent implements OnInit {
 
   // Async | Getting data from Member Service API
   async getMemberList(): Promise<void> {
-    await this.proPublica.getCongressMembers().toPromise()
+    await this.proPublica.getCongressMembers()
+      .pipe(takeUntil(this.ngUnsubscribe)).toPromise()
       .then((data: { results: any }) => {
         this.membersList.push(...data.results[0].members);
         this.tempMemberList.push(...data.results[0].members);
@@ -60,7 +65,11 @@ export class MembersListComponent implements OnInit {
             });
           }
         });
+        this.isLoading = false;
         return data.results;
+      })
+      .catch(() => {
+        this.hasError = true;
       });
   }
 
@@ -81,9 +90,7 @@ export class MembersListComponent implements OnInit {
       calcDif = this.pagSize % 10;
       totalPages = calcDif > 0 ? calcPages + 1 : calcPages;
     }
-
     this.pagItems = [];
-
     for (let i = 0; i < totalPages; i++) {
       if (i === 0) {
         this.pagItems.push({
@@ -153,5 +160,12 @@ export class MembersListComponent implements OnInit {
       this.pagSize = this.membersList.length;
       this.setPagination();
     }
+  }
+
+  ngOnDestroy(): void {
+    // This aborts all HTTP requests.
+    this.ngUnsubscribe.next();
+    // This completes the subject properly.
+    this.ngUnsubscribe.complete();
   }
 }
