@@ -117,8 +117,13 @@
               "devServerTarget": "angular-challenger:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "angular-challenger"
 }

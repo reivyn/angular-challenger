@@ -1,4 +1,7 @@
 export const environment = {
   production: true,
-  congressMembersAPI: 'https://projects.propublica.org/api-docs/congress-api/members/#lists-of-members'
+  congressMembers: {
+    api: 'https://api.propublica.org/congress/v1/116/senate/members.json',
+    'x-api-key': 'MhIHfqiVsNFlaywNWgc5XBGcyKjz8R70dOaozB6b'
+  }
 };
